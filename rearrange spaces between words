@@ -1,0 +1,12 @@
+class Solution:
+    def reorderSpaces(self, text: str) -> str:
+        spaces=0;
+        for x in text:
+            if x==" ":
+                spaces+=1
+                
+        words=[x for x in text.split(" ") if x!=""]
+        if len(words)==1:
+            return words[0]+(" *spaces")
+        spaces_per,leftover=divmod(spaces,len(words)-1)
+        return(" "* spaces_per).join(words)+(" "*leftover)
